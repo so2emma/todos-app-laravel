@@ -13,4 +13,9 @@ class TodosController extends Controller
         $todos = Todo::all();
         return view("Todos.index", compact("todos"));
     }
+    public function show($todoID)
+    {
+        $todo = Todo::findOrFail($todoID);
+        return view("Todos.show", compact("todo"));
+    }
 }

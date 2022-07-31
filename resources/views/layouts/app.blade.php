@@ -22,7 +22,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/todos">Todos</a>
+                <a class="nav-link active" aria-current="page" href="/todo">Todos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/new-todo">Create Todo</a>
               </li>
             </ul>
 
@@ -30,6 +33,11 @@
         </div>
       </nav>
     <div class="container">
+        @if (session()->has("success"))
+            <div class="alert alert-success">
+                {{ session()->get("success")}}
+            </div>
+        @endif
         @yield("content")
     </div>
 
